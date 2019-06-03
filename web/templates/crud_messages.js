@@ -38,7 +38,8 @@ $(function(){
             dataField: "content",
         }, {
             dataField: "sent_on",
-            allowEditing: false
+            allowEditing: false,
+            dataType: "datetime"
         }, {
             dataField: "user_from_id",
             dataType: "number",
