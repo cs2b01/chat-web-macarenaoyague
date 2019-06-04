@@ -6,7 +6,6 @@
     <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script>
 </head>
 <body>
-    <form method="POST" action="/authenticate">
         <div>
             <table>
                 <tr>
@@ -18,31 +17,37 @@
                     <td><input id="password" type="password" name="password"> </input></td>
                 </tr>
                 <tr>
-                    <td coldspan="2"><input type="submit" value="Login" onclick="getData()"></input></td>
+                    <td coldspan="2"><input type="button" value="Login" onclick="getData()"></input></td>
                 </tr>
             </table>
+            <label id="action">Waiting for user</label>
         </div>
-    </form>
     <script>
         function getData(){
-            var uname = $('#username').val();
-            var paswd = $('#password').val();
-            $ajax({
-                url:'authenticate',
-                type = 'POST',
-                contestType: 'application/json',
-                data = JSON.stringify({
-                    "username": uname,
-                    "password": paswd,
-                }),
-                dataType;'json'
+            $('#action').html("Authenticating...");
+            var username = $('#username').val();
+            var password = $('#password').val();
+            var message = JSON.stringify({
+                "username": username,
+                "password": password
             });
-            alert(JSON.stringify({
-                "username":uname,
-                "password":pswd
-            }))
-        }
 
+            $.ajax({
+                url:'/authenticate',
+                type : 'POST',
+                contentType: 'application/json',
+                data : message,
+                dataType: 'json',
+                success: function(response){
+                    //alert(JSON.stringify(response));
+                    $('#action').html(response['statusText']);
+                },
+                error: function(response){
+                    //alert(JSON.stringify(response));
+                    $('#action').html(response['statusText']);
+                }
+            });
+        }
     </script>
 </body>
 </html>

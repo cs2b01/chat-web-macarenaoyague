@@ -3,6 +3,7 @@ from database import connector
 from model import entities
 import json
 import datetime
+import time
 
 db = connector.Manager()
 engine = db.createEngine()
@@ -136,10 +137,15 @@ def login():
 
 @app.route('/authenticate', methods=['POST'])
 def authenticate():
+    time.sleep(4)
 
     #Get data from request (name from html form)
-    username = request.form['username']
-    password = request.form['password']
+        #username = request.form['username']
+        #password = request.form['password']
+
+    message=json.loads(request.data)
+    username=message['username']
+    password=message['password']
 
     #look in databes
     db_session = db.getSession(engine)
@@ -157,9 +163,11 @@ def authenticate():
             ).filter(entities.User.username==username
             ).filter(entities.User.password==password
             ).one()
-        return render_template("success.html")
+        message = {'message':'Authorized'}
+        return Response(message, status=200, mimetype='application/json')
     except Exception:
-        return render_template("fail.html")
+        message = {'message':'Unauthorized'}
+        return Response(message, status=401, mimetype='application/json')
 
 if __name__ == '__main__':
     app.secret_key = ".."
