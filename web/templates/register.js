@@ -1,5 +1,4 @@
 function checkData(){
-    alert(8);
     var name = $('#name').val();
     var fullname = $('#fullname').val();
     var username = $('#username').val();
@@ -38,7 +37,6 @@ function checkData(){
             contentType: 'application/json',
             dataType:'json',
             success: function(response){
-                alert(1);
                 var i = 0;
                 $.each(response, function(){
                     if (response[i].username==username)
@@ -59,8 +57,10 @@ function checkData(){
                                 alert("Try again");
                             }else{
                                 alert("Your account has been successfully registered. Welcome to Global Chat Web.");
-                                window.location.href = "http://0.0.0.0:8020/static/login.html";
+                                window.location.href = " http://127.0.0.1:8080/static/login.html";
+
                             }
+
                         }
                     });
             },
