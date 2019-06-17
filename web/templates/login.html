@@ -1,53 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Chat</title>
+    <meta charset="UTF-8">
+    <title>Chat Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script>
+    <script src="/static/login.js"></script>
+    <link rel="stylesheet" href="/static/css/login.css/">
+    <script src="/static/js/libs/bootstrap.min.js" ></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-        <div>
-            <table>
-                <tr>
-                    <td>Username</td>
-                    <td><input id="username" type="text" name="username"></input></td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td><input id="password" type="password" name="password"> </input></td>
-                </tr>
-                <tr>
-                    <td coldspan="2"><input type="button" value="Login" onclick="getData()"></input></td>
-                </tr>
-            </table>
-            <label id="action">Waiting for user</label>
-        </div>
-    <script>
-        function getData(){
-            $('#action').html("Authenticating...");
-            var username = $('#username').val();
-            var password = $('#password').val();
-            var message = JSON.stringify({
-                "username": username,
-                "password": password
-            });
-
-            $.ajax({
-                url:'/authenticate',
-                type : 'POST',
-                contentType: 'application/json',
-                data : message,
-                dataType: 'json',
-                success: function(response){
-                    //alert(JSON.stringify(response));
-                    $('#action').html(response['statusText']);
-                },
-                error: function(response){
-                    //alert(JSON.stringify(response));
-                    $('#action').html(response['statusText']);
-                }
-            });
-        }
-    </script>
+<div id="tabla">
+    <h1>Login</h1>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username"/>
+    </div>
+    <div>
+        <label for="username">Password</label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <div>
+        <button type="button" class="btn btn-secondary" id="send_button" onclick="getData()">
+                            Sign</button>
+    </div>
+</div>
 </body>
 </html>

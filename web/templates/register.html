@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="register.js"></script>
+    <link rel="stylesheet" href="/static/css/login.css/">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="tabla">
+    <h1>Register</h1>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+    </div>
+    <div>
+        <label for="fullname">Fullname</label>
+        <input type="text" name="fullname" id="fullname"/>
+    </div>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <div>
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="">-Seleccionar-</option>
+            <option value="">Argentina</option>
+            <option value="">Chile</option>
+            <option value="">Brasil</option>
+            <option value="">Spain</option>
+            <option value="">USA</option>
+            <option value="">Germany</option>
+        </select>
+    </div>
+    <div>
+        <button onclick="checkData()">Sign up</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+              font-family: 'Montserrat', sans-serif;
+              background:#A91B0D;
+              margin: 0 auto 0 auto;
+              width:100%;
+              text-align:center;
+              margin: 20px 0px 20px 0px;
+              float: left;
+
+}
+
+div{
+            padding: 20px;
+            background: white;
+			width: 90%;
+			margin: 10px auto;
+			margin-top: 10px;
+}
+
+input{
+    width: 90%;
+}
+
+label{
+    width: 90%;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Chat Web</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/libs/bootstrap.min.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="chat.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/chat.css/">
+</head>
+<body onload="whoiam()">
+
+<div id="countries" >
+        <h6>Choose a country to find people</h6>
+        <img src="/static/images/argentina.svg" height="5%" width="5%" onclick="openChat('Aegentina')">
+        <img src="/static/images/brasil.svg" height="5%" width="5%" onclick="openChat('Brasil')">
+        <img src="/static/images/chile.svg" height="5%" width="5%" onclick="openChat('Chile')">
+        <img src="/static/images/usa.svg" height="5%" width="5%" onclick="openChat('USA')">
+        <img src="/static/images/alemania.svg" height="5%" width="5%" onclick="openChat('Germany')">
+        <img src="/static/images/españa.svg" height="5%" width="5%" onclick="openChat('Spain')">
+</div>
+<div id="info" >
+    <table width="100%" id="table" >
+        <tr>
+            <td width="25%">
+                <div>
+                    <label class="alert alert-dark" role="alert" id="cu_name" onclick="changeNameLoad()" ></label>
+                    <input id="inputChange" type="text" placeholder="Change name..." style="display:none">
+                    <button id="buttonChange" onclick="changeName()" type="button" class="btn btn-outline-dark btn-sm" style="display:none">Change</button>
+                    <button id="cancelChange" onclick="cancelChange()" type="button" class="btn btn-outline-primary btn-sm" style="display:none">Cancel</button>
+                </div>
+            </td>
+            <td width="75%"><div id="from" height="20%"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="25%">
+                <div style="display:none">
+                  <label class="btn btn-secondary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Chats
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option2" autocomplete="off"> Family
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option3" autocomplete="off"> Friends
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="option4" autocomplete="off"> Favorites
+                  </label>
+                </div>
+
+
+                <div id="allusers">
+                </div>
+            </td>
+
+            <td width="75%">
+                <div id="div" style="display:none">
+
+                    <div id="messages_" height="70%"></div>
+                    <div id="send">
+                        <input type="text" id="content" placeholder="Write your message...">
+                        <button type="button" class="btn btn-secondary" id="send_button" onclick="sendMessage()">
+                            Send</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

@@ -41,6 +41,8 @@ $(function(){
             dataField: "fullname"
         }, {
             dataField: "password"
-        }, ],
+        }, {
+            dataField: "country"
+        }],
     }).dxDataGrid("instance");
 });
